@@ -1,6 +1,6 @@
 # Basic Makefile
 
-UUID = dash-to-dock@micxgx.gmail.com
+UUID = dash-to-dock-transparent@kruceo.com
 BASE_MODULES = extension.js \
                metadata.json \
                COPYING \
@@ -49,7 +49,7 @@ else
 	SHARE_PREFIX = $(DESTDIR)/usr/share
 	INSTALLBASE = $(SHARE_PREFIX)/gnome-shell/extensions
 endif
-INSTALLNAME = dash-to-dock@micxgx.gmail.com
+INSTALLNAME = dash-to-dock-transparent@kruceo.com
 
 # The command line passed variable VERSION is used to set the version string
 # in the metadata and in the generated zip-file. If no VERSION is passed, the
@@ -115,6 +115,7 @@ ifeq ($(INSTALLTYPE),system)
 	cp -r ./_build/locale/* $(SHARE_PREFIX)/locale
 endif
 	-rm -fR _build
+	echo "this repo is forked from 'https://github.com/micheleg/dash-to-dock'"
 	echo done
 
 zip-file: _build check

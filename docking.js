@@ -729,11 +729,15 @@ const DockedDash = GObject.registerClass({
             this._animateIn(settings.animationTime, 0);
         } else if (this._intellihideIsEnabled) {
             if (!this.dash.requiresVisibility && this._intellihide.getOverlapStatus()) {
+                this.dash._background.set_style(`background-color: ${this._themeManager._customizedBackground};`)
+
                 this._ignoreHover = false;
                 // Do not hide if autohide is enabled and mouse is hover
                 if (!this._box.hover || !this._autohideIsEnabled)
                     this._animateOut(settings.animationTime, 0);
             } else {
+                this.dash._background.set_style(`background-color: rgba(0,0,0,0);`)
+                
                 this._ignoreHover = true;
                 this._removeAnimations();
                 this._animateIn(settings.animationTime, 0);
